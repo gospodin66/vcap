@@ -1,0 +1,8 @@
+pipenv install
+
+pipenv shell
+
+pipenv run (run inside virtual env)
+
+
+. /home/cheki/.local/share/virtualenvs/pythonenv-IfSpZUPS/bin/activate
