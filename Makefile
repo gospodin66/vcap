@@ -35,8 +35,8 @@ init:
 	pip install -r requirements.txt
 	pipenv install -r requirements.txt
 
-install-upgrade: ## Installs development requirments
-install-upgrade:
+install-d: ## Installs development requirments
+install-d:
 	python -m pip install --upgrade pip
 	pip install setuptools wheel pytest
 
@@ -48,7 +48,7 @@ install:
 
 install-wheel: ## Install package wheel
 install-wheel:
-	pip install --no-clean dist/*.whl
+	pip install --no-clean wheels/*.whl
 
 get-wheels: ## Download wheels (*.whl)
 get-wheels:
@@ -60,7 +60,7 @@ wheels:
 	python setup.py bdist_wheel
 
 package-dist: # Create source (tarball) and wheel distribution
-package-dist: 
+package-dist:
 	python setup.py bdist_wheel
 	python setup.py sdist --formats=zip,gztar,bztar,ztar,tar
 

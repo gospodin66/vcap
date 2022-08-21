@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "27dc849eae901c8c1447a4faa883332ba4e0ba4dcd27d6a228cbc60ebbcd7302"
+            "sha256": "320ae823ba7ec0ba35c248b072c26ed090a16069c8db697704f3f749c244405f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -70,6 +70,10 @@
             ],
             "index": "pypi",
             "version": "==4.6.0.66"
+        },
+        "vcap": {
+            "git": "https://github.com/gospodin66/vcap.git",
+            "ref": "e02371f54696629075feda25314347b496dd8a7d"
         }
     },
     "develop": {}

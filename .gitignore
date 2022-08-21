@@ -1,2 +1,7 @@
-src/vcap/
+src/vcap/*
 !src/vcap/vcap.py
+!src/vcap/__init__.py
+dist/
+build/
+vcap-0.0.1/
+vcap.egg-info/

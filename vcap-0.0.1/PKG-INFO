@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: vcap
+Version: 0.0.1
+Summary: Tutorial package
+Home-page: 
+Download-URL: 
+Author: Cheki
+Author-email: chekismail@fakeemail.com
+Keywords: vcap,videocap
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 2.7
