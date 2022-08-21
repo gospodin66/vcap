@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 opencv-python = "*"
 click = "*"
+vcap = {ref = "master", git = "https://github.com/gospodin66/vcap.git"}
 
 [dev-packages]
 

@@ -33,8 +33,7 @@ help:
 init: ## sets up environment and installs requirements
 init:
 	pip install -r requirements.txt
-	pipenv install
-	pipenv install git+https://github.com/gospodin66/vcap.git@master#egg=vcap
+	pipenv install -r requirements.txt
 
 install-upgrade: ## Installs development requirments
 install-upgrade:
