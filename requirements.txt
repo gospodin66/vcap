@@ -1,2 +1,4 @@
+opencv-python
 click
-cv2
+setuptools
+git+https://github.com/gospodin66/vcap@master#egg=vcap
