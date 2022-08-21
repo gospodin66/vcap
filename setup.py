@@ -51,6 +51,11 @@ if __name__ == '__main__':
         install_requires=[
             *read_pipenv_dependencies('Pipfile.lock')
         ],
+        entry_points={
+            'console_scripts': [
+                'vcap = vcap.scripts.vcap:cli',
+            ],
+        },
         # https://pypi.org/classifiers/
         classifiers=[
             'Programming Language :: Python :: 3.8',
