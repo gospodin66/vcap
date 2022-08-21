@@ -33,25 +33,23 @@ help:
 init: ## sets up environment and installs requirements
 init:
 	pip install -r requirements.txt
+	pipenv install
+	pipenv install git+https://github.com/gospodin66/vcap.git@master#egg=vcap
 
 install-upgrade: ## Installs development requirments
 install-upgrade:
 	python -m pip install --upgrade pip
-	pip install setuptools wheel pytest flake8
-	
-install-requirements: ## Install dependencies into virtual env -> updates Pipfile/Pipfile.lock
-install-requirements:
-	pipenv install -r requirements.txt
+	pip install setuptools wheel pytest
 
 install: ## Install
 install:
-	export PYTHONPATH=/home/cheki/projects/pythonenv/src/vcap/
+	python -m pip install --upgrade pip
 	python setup.py install
-	python -m pip install .
+	python -m pip install --no-clean .
 
 install-wheel: ## Install package wheel
 install-wheel:
-	pip install --no-index --find-links=dist/*.whl vcap
+	pip install --no-clean dist/*.whl
 
 get-wheels: ## Download wheels (*.whl)
 get-wheels:
@@ -64,11 +62,13 @@ wheels:
 
 package-dist: # Create source (tarball) and wheel distribution
 package-dist: 
-	python setup.py bdist_wheel ## Generate versioned wheel, includes dependencies
-	python setup.py sdist --formats=zip,gztar,bztar,ztar,tar ## Source code
+	python setup.py bdist_wheel
+	python setup.py sdist --formats=zip,gztar,bztar,ztar,tar
+
 package-local: ## Don't generate anything, just install locally
 package-local:
 	python setup.py develop
+
 clean: ## Remove build and cache files
 clean: clean-upgrade
 	rm -rf *.egg-info

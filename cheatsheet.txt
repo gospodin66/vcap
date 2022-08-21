@@ -4,5 +4,13 @@ pipenv shell
 
 pipenv run (run inside virtual env)
 
-
 . /home/cheki/.local/share/virtualenvs/pythonenv-IfSpZUPS/bin/activate
+
+setup-py (generate setup.py file)
+
+pipenv run pip freeze > requirements.txt
+
+pipenv install -r path/to/requirements.txt
+
+
+    git+https://github.com/gospodin66/vcap.git@master#egg=vcap
