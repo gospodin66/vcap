@@ -1,4 +1,0 @@
-click
-numpy
-opencv-python
-vcap
