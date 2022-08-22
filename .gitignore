@@ -1,4 +1,5 @@
 src/vcap/*
+!src/vcap/cli.py
 !src/vcap/vcap.py
 !src/vcap/__init__.py
 dist/

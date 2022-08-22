@@ -53,7 +53,7 @@ if __name__ == '__main__':
         ],
         entry_points={
             'console_scripts': [
-                'vcap = vcap.scripts.vcap:cli',
+                'vcap = vcap:cli',
             ],
         },
         # https://pypi.org/classifiers/
