@@ -6,3 +6,4 @@ dist/
 build/
 vcap-0.0.1/
 vdcap.egg-info/
+videos/
