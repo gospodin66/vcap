@@ -1,4 +1,3 @@
 opencv-python
 click
 setuptools
-git+https://github.com/gospodin66/vcap.git@master#egg=vcap

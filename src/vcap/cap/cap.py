@@ -14,14 +14,14 @@ class Vcap:
 
     _TIME_FORMAT = "%Y-%m-%d %I:%M:%S %p"
     
-    def __init__(self, path: str='./videos/'):
+    def __init__(self, path: str='videos'):
         self.path = path
-        if not os.path.exists(self.self.path):
-            print(f"dir {self.self.path} doesn't exist - creating..")
-            os.makedirs(self.self.path)
-        if not os.path.exists(self.self.path+"frames/"):
-            print(f"dir {self.self.path}frames/ doesn't exist - creating..")
-            os.makedirs(self.self.path+"frames/")
+        if not os.path.exists(self.path):
+            print(f"dir {self.path} doesn't exist - creating..")
+            os.makedirs(self.path)
+        if not os.path.exists(self.path+"/frames/"):
+            print(f"dir {self.path}/frames/ doesn't exist - creating..")
+            os.makedirs(self.path+"/frames/")
 
 
     #
@@ -45,12 +45,12 @@ class Vcap:
     #
     def init_cap(self, vfile: str, mode: str) -> int:
 
-        self.path = self.path+vfile if vfile else self.path+"default.mp4"
+        self.file_path = self.path+vfile if vfile else self.path+"default.mp4"
             
         if mode == "cap":
             self.cap = cv2.VideoCapture(0)
         elif mode == "play":
-            self.cap = cv2.VideoCapture(self.path)
+            self.cap = cv2.VideoCapture(self.file_path)
         else:
             print("invalid mode.")
             return 1
@@ -63,10 +63,10 @@ class Vcap:
     #
     def init_writer(self, vfile: str):
        
-        self.path = self.path+vfile if vfile else self.path+"default.mp4"
+        self.file_path = self.path+vfile if vfile else self.path+"default.mp4"
 
         self.frame_cnf = {
-            "name": self.path,
+            "name": self.file_path,
             "fourcc": cv2.VideoWriter_fourcc(*'mp4v'),
             "fps": 20.0,
             "frame_size": {
@@ -151,7 +151,8 @@ class Vcap:
             if inverted.any():
                 # display morphed frame
                 cv2.imshow('FGMaskMorph', inverted)
-                # cv2.imwrite(self.path+'frames/' + str(framecnt) + '.png', inverted)
+                cv2.imwrite(self.path+'/frames/' + str(framecnt) + '.png', inverted)
+                # cv2.imwrite(self.path+'/frames/' + str(framecnt) + '.png', inverted)
 
             # display original frame
             cv2.imshow('TestFrame', frame)
@@ -176,19 +177,19 @@ class Vcap:
     def build_video_from_imgs(self):
         video_name = self.path+'crafted.avi'
 
-        images = (img for img in os.listdir(self.path+"frames/")
+        images = (img for img in os.listdir(self.path+"/frames/")
                     if img.endswith(".jpg") or
                         img.endswith(".jpeg") or
                         img.endswith(".png"))
             
-        frame = cv2.imread(os.path.join(self.path+"frames/", images[0]))
+        frame = cv2.imread(os.path.join(self.path+"/frames/", images[0]))
         height, width, layers = frame.shape
 
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
         video = cv2.VideoWriter(video_name, fourcc, 1, (width,height))
 
         for image in images:
-            video.write(cv2.imread(os.path.join(self.path+"frames/", image)))
+            video.write(cv2.imread(os.path.join(self.path+"/frames/", image)))
 
         cv2.destroyAllWindows()
         video.release()

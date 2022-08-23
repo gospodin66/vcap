@@ -1,24 +1,22 @@
-
 import click
-from vcap import Vcap
 
+from .cap import cap
 
 CONTEXT_SETTINGS = dict(
     default_map={
-        'cap__video': {'path': 'videos'},
-        'play__video': {'path': 'videos'}
+        '--cap-video': {'path': 'videos'},
+        '--play-video': {'path': 'videos'}
     }
 )
-
-@click.group(context_settings=CONTEXT_SETTINGS)
+context_settings=CONTEXT_SETTINGS
+@click.group()
 def cli_cmd():
     pass
 
 
 @cli_cmd.command()
 @click.option(
-   '-c',
-   '--cap-video',
+   '--cap-video','-c',
    type=bool,
    is_flag=True,
    show_default=True,
@@ -28,10 +26,10 @@ def cli_cmd():
 @click.argument(
     'path',
     type=str,
-    default='./videos'
+    required=False
 )
-def cap__video(path):
-    v = Vcap(path)
+def cap_video(cap_video, path):
+    v = cap.Vcap(path)
     capres = v.cap_video()
     if capres == 0:
         print("\ncap test passed successfully!")
@@ -39,8 +37,7 @@ def cap__video(path):
 
 @cli_cmd.command()
 @click.option(
-   '-p',
-   '--play-video',
+   '--play-video','-p',
    type=bool,
    is_flag=True,
    show_default=True,
@@ -49,13 +46,15 @@ def cap__video(path):
 )
 @click.argument(
     'path',
-    type=str
+    type=str,
+    required=False
 )
-def play__video(path):
-    v = Vcap(path)
+def play_video(play_video, path):
+    v = cap.Vcap(path)
     playres = v.play_video()
     if playres == 0:
         print("\nplay test passed successfully!")
+
 
 
 cli = click.CommandCollection(sources=[cli_cmd])

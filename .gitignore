@@ -1,8 +1,8 @@
 src/vcap/*
-!src/vcap/cli.py
-!src/vcap/vcap.py
+!src/vcap/app.py
+!src/vcap/cap/
 !src/vcap/__init__.py
 dist/
 build/
 vcap-0.0.1/
-vcap.egg-info/
+vdcap.egg-info/

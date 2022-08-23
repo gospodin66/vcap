@@ -40,6 +40,11 @@ install-d:
 	python -m pip install --upgrade pip
 	pip install setuptools wheel pytest
 
+install-e: ## Installs development requirments
+install-e:
+	pip install -r requirements.txt
+	pip install -e .
+
 install: ## Install
 install:
 	python -m pip install --upgrade pip
@@ -48,7 +53,7 @@ install:
 
 install-wheel: ## Install package wheel
 install-wheel:
-	pip install --no-clean wheels/*.whl
+	pip install --no-clean --force-reinstall wheels/*.whl
 
 get-wheels: ## Download wheels (*.whl)
 get-wheels:

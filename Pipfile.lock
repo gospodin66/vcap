@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "320ae823ba7ec0ba35c248b072c26ed090a16069c8db697704f3f749c244405f"
+            "sha256": "6ecd2b1ed77f0a2f7e3f17a3632ca77635c2acb0b577629bb4712f9baeb202bb"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.8"
+            "python_version": "3.10"
         },
         "sources": [
             {
@@ -55,7 +55,7 @@
                 "sha256:e603ca1fb47b913942f3e660a15e55a9ebca906857edfea476ae5f0fe9b457d5",
                 "sha256:ecfdd68d334a6b97472ed032b5b37a30d8217c097acfff15e8452c710e775524"
             ],
-            "markers": "python_version >= '3.7'",
+            "markers": "python_version >= '3.8'",
             "version": "==1.23.2"
         },
         "opencv-python": {
@@ -70,10 +70,6 @@
             ],
             "index": "pypi",
             "version": "==4.6.0.66"
-        },
-        "vcap": {
-            "git": "https://github.com/gospodin66/vcap.git",
-            "ref": "9734cb2f890b41effe55160e625f31f97068deba"
         }
     },
     "develop": {}

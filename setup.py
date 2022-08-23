@@ -23,40 +23,23 @@ def read_pipenv_dependencies(fname):
 if __name__ == '__main__':
     setup(
         # Name of the package
-        name="vcap",
-        # Packages to include into the distribution
-        packages=find_packages('src', include=['vcap*']), 
+        name="vdcap",
         package_dir={'vcap':'src/vcap'}, # the one line where all the magic happens
-        # Start with a small number and increase it with every change you make
-        # https://semver.org
+        packages=find_packages('src', include=['*cap']), 
         version=os.getenv('PACKAGE_VERSION', '0.0.1'),
-        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
-        # For example: MIT
-        license='',
-        # Short description of your library
         description='Tutorial package',
-        # Long description of your library
         long_description = long_description,
-        # Your name
         author='Cheki', 
-        # Your email
         author_email='chekismail@fakeemail.com',     
-        # Either the link to your github or to your website
-        url='',
-        # Link from which the project can be downloaded
-        download_url='',
-        # List of keyword arguments
-        keywords=['vcap','videocap'],
-        # List of packages to install with this one
+        keywords=['vcap','videocap','vdcap'],
         install_requires=[
             *read_pipenv_dependencies('Pipfile.lock')
         ],
         entry_points={
             'console_scripts': [
-                'vcap = vcap:cli',
+                'vdcap=src.vcap.app:cli',
             ],
         },
-        # https://pypi.org/classifiers/
         classifiers=[
             'Programming Language :: Python :: 3.8',
             'Programming Language :: Python :: 2.7',
