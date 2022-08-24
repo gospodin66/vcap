@@ -26,13 +26,18 @@ def cli_cmd():
 @click.argument(
     'path',
     type=str,
-    required=False
+    required=False,
+    default="videos"
 )
 def cap_video(cap_video, path):
     v = cap.Vcap(path)
     capres = v.cap_video()
     if capres == 0:
         print("\ncap test passed successfully!")
+    print("Building video from frames..")
+    v.build_video_from_imgs()
+    print("Video built!")
+
 
 
 @cli_cmd.command()
@@ -47,7 +52,8 @@ def cap_video(cap_video, path):
 @click.argument(
     'path',
     type=str,
-    required=False
+    required=False,
+    default="videos"
 )
 def play_video(play_video, path):
     v = cap.Vcap(path)
